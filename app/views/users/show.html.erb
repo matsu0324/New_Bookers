@@ -1,0 +1,25 @@
+<div class="container">
+ <div class="row">
+   <div class="col-lg-3" style="background-color: orange;">
+      <h2>User info</h2>
+        <div class="user-info">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+             
+        　　<button class="btn btn-default"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></button>
+        </div>
+        <div class="create-book">
+          <h2><b>New book</b></h2>
+          <%= form_with model:@book, local:true do |f| %>
+            <h3 class="book-title">Title</h3>
+              <% f.text_field :title %>
+            <h3 class="book-opinion">Opinion</h3>
+              <% f.text_area :oninion %>
+            <p class="create-button"><button class="btn btn-primary"><%= submit "Create Book" %></button></p>
+        </div>
+    </div>
+
+    <div class="col-lg-">
+      <table class="table table-striped"></table>
+    </div>
+ </div>
+</div>
