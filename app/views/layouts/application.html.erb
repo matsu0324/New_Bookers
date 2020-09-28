@@ -44,6 +44,16 @@
       </nav>
     </div>
 
-    <%= yield %>
+    <% if @book.errors.any? %>
+　　<div id="error_explanation" class="alert alert-danger">
+      <h2 class="error"><%= @book.errors.count %> errors prohibited this book from being saved:</h2>
+      <ul>
+        <% @book.errors.full_messages.each do |message| %>
+          <li class="error"><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+   <% end %>
+  <%= yield %>
   </body>
 </html>

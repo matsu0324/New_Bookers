@@ -1,15 +1,6 @@
   <body>
 <h1 class="edit-heading">Editing Book</h1>
- <% if @book.errors.any? %>
-　　<div id="error_explanation" class="alert alert-danger">
-      <h2 class="error"><%= @book.errors.count %> errors prohibited this book from being saved:</h2>
-      <ul>
-        <% @book.errors.full_messages.each do |message| %>
-          <li class="error"><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
- <% end %>
+      
   <%= form_with model:@book, url:"/books/#{@book.id}", local:true do |f| %>
     <h4 class="edit-title">Title</h4>
     <%= f.text_field :title %>
