@@ -18,6 +18,11 @@ class BooksController < ApplicationController
 
   def show
   end
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_to books_path, notice: 'Your book was successfully destroyed'
+  end
 
   private
   def book_params

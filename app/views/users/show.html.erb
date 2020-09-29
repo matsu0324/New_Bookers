@@ -2,20 +2,22 @@
   <div class="row">
     <div class="col-lg-3">
       <h2>User info</h2>
-      <img class="attchment user profile_image fallback" alt="No image">
+      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
       <table class="table">
         <tbody>
           <tr>
             <th>name</th>
-            <th>    </th>
+            <th><%= @user.name %></th>
           </tr>
           <tr>
             <th>introduction</th>
-            <th>            </th>
+            <th><%= @user.introduction %></th>
+            <% if @user.id == current_user.id %>
+            <p><%= link_to "<button class="btn btn-default"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></button>", edit_user_path(@user) %></p>
+            <% end %>
           </tr>
         </tbody>
       </table>
-      <button class="btn btn-default"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></button>
     </div>
     <div class="create-book">
     <h2><b>New book</b></h2>
@@ -31,7 +33,7 @@
       <table class="table table-hover table-inverse">
         <thead>
           <tr>
-            <th></th>
+            <th><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %></th>
             <th>Title</th>
             <th>Opinion</th>
           </tr>

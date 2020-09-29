@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-9">
+      <h2>Book detail</h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %></td>
+            <td><%= @book.title %></td>
+            <td><%= @book.opinion %></td>
+            <td><button class="btn btn-success"><%= link_to "edit", edit_book_path(@book.id) %></button></button></td>
+            <% if @book.user == current_user %>
+              <td><button class="btn btn-link"><%= link_to "destroy", book_path(@book), method: :delete %></button></td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+  </div>
+</div>

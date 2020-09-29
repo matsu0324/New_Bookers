@@ -1,12 +1,26 @@
   <body>
-<h1 class="edit-heading">Editing Book</h1>
-      
-  <%= form_with model:@book, url:"/books/#{@book.id}", local:true do |f| %>
-    <h4 class="edit-title">Title</h4>
-    <%= f.text_field :title %>
-    <h4 class="edit-title">Body</h4>
-    <%= f.text_area :body %>
-    <p><%= f.submit 'Update Book' %></p>
-    <p class="edit-tab"><%= link_to 'Show', book_path(@book.id) %> | <%= link_to "Back", books_path %></p>
-  <% end %>
-</body>
+    <% if @book.errors.any? %>
+　　<div id="error_explanation" class="alert alert-danger">
+      <h2 class="error"><%= @book.errors.count %> errors prohibited this book from being saved:</h2>
+      <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li class="error"><%= message %></li>
+      </ul>
+      <% end %>
+    </div>
+    <% end %>
+    <div class="form-body">
+      <h2>User info</h2>
+        <%= form_with model:@user, local:true do |f| %>
+          <label class="control-label sr-only" for="inputEmail">Name</label>
+          <%= f.text_field :name, autofocus: true, class:"form-control", id:"inputEmail" %>
+          <span class="fa fa-user form-control-icon" aria-hidden="true"></span>
+          <label class="control-label sr-only" for="inputEmail">Image</label>
+          <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
+          <%= f.attachment_field :profile_image, class: "user-edit-form" %>
+          <label class="control-label sr-only" for="inputEmail">Introduction</label>
+          <%= f.text_area :introduction, autofocus: true, class:"form-control", id:"inputEmail" %>
+          <p><%= f.submit 'Update User', class:"btn btn-lg btn-block btn-base-1 mt-20" %></p>
+        <% end %>
+    </div>
+  </body>
