@@ -12,46 +12,57 @@
           <tr>
             <th>introduction</th>
             <th><%= @user.introduction %></th>
-            <% if @user.id == current_user.id %>
-            <p><%= link_to "<button class="btn btn-default"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></button>", edit_user_path(@user) %></p>
-            <% end %>
           </tr>
         </tbody>
       </table>
-    </div>  
-    <div class="create-book">
-    <h2><b>New book</b></h2>
-      <%= form_with model:@book, local:true do |f| %>
-    <h3 class="book-title">Title</h3>
-      <% f.text_field :title %>
-    <h3 class="book-opinion">Opinion</h3>
-      <% f.text_area :oninion %>
-    <p class="create-button"><button class="btn btn-primary"><%= submit "Create Book" %></button></p>
+      <div class="edit-button">
+        <% if @user.id == current_user.id %>
+          <%= link_to edit_user_path(@user) do %>
+　　　　  <button type="button" class="btn btn-default btn-block"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></button>
+　　　　  <% end %>
+　　　　<% end %>
+　　　</div>
+
+      <div class="create-book">
+        <h2><b>New book</b></h2>
+          <%= form_with model:@book, local:true do |f| %>
+            <h3 class="book-title">Title</h3>
+          <%= f.text_field :title %>
+            <h3 class="book-opinion">Body</h3>
+          <%= f.text_area :body %>
+          <%= f.submit "Create Book", class: "btn btn-primary" %>
+          <% end %>
+      </div>
+    </div>
 
     <div class="col-lg-9">
       <h2>Books</h2>
       <table class="table table-hover table-inverse">
         <thead>
           <tr>
-            <th><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %></th>
+            <th></th>
             <th>Title</th>
             <th>Opinion</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <img class="attchment user profile_image fallback" alt="No image icon" >
-            </td>
-            <td>
-              gggggggg
-            </td>
-            <td>
-              gggggggg
-            </td>
-          </tr>
+          <% @books.each do |book| %>
+            <tr>
+              <td>
+                <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+              </td>
+              <td>
+                <%= link_to book_path(book.id) do %>
+                  <%= book.title %>
+                <% end %>
+              </td>
+              <td>
+                <%= book.body %>
+              </td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
+    </div>
   </div>
-</div>
