@@ -5,7 +5,7 @@
     <%= f.text_field :title %>
     <h4 class="edit-title">Opinion</h4>
     <%= f.text_area :body %>
-    <p><%= f.submit 'Update Book'%></p>
+    <p><%= f.submit 'Update Book', class: "btn btn-primary" %></p>
     <p class="edit-tab"><%= link_to 'Show', book_path(@book.id) %> | <%= link_to "Back", books_path %></p>
   <% end %>
 </body>

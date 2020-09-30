@@ -1,16 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-9">
+      <p class="notice" style="color: #00ff7f;"><%= notice %></p>
       <h2>Book detail</h2>
       <table class="table">
         <tbody>
           <tr>
-            <td><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %></td>
+            <td><%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %></td>
             <td><%= @book.title %></td>
             <td><%= @book.body %></td>
             <td><button class="btn btn-success"><%= link_to "edit", edit_book_path(@book.id) %></button></button></td>
             <% if @book.user == current_user %>
-              <td><button class="btn btn-link"><%= link_to "destroy", book_path(@book), method: :delete %></button></td>
+              <td><button class="btn btn-danger"><%= link_to "destroy", book_path(@book), method: :delete, "data-confirm" => "Are you sure?" %></button></td>
             <% end %>
           </tr>
         </tbody>
