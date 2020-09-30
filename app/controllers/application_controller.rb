@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
        flash[:notice] = "signed in successfully"
        user_path(current_user.id)
   end
+  def after_sign_out_path_for(resource)
+      flash[:notice] = "signed out successfully"
+      root_path
+  end
 
   private
   def configure_permitted_parameters
