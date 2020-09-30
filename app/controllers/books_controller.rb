@@ -8,6 +8,7 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to book_path(@book.id), notice: 'Your book was successfully created'
     else
+      @user = current_user
       @books = Book.all
       render :index
     end
@@ -53,7 +54,7 @@ class BooksController < ApplicationController
   def correct_user
     book = Book.find(params[:id])
     if current_user != book.user
-    redirect_to user_path(current_user)
+    redirect_to books_path
     end
   end
 end
