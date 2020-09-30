@@ -14,17 +14,11 @@
           </tr>
         </thead>
         <tbody>
-          <% @books.each do |book| %>
+          <% @users.each do |user| %>
             <tr>
-              <td>
-                <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
-              </td>
-              <td>
-                  <%= user.name %>
-              </td>
-              <td>
-                <%= book.body %>
-              </td>
+              <td><%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %></td>
+              <td><%= user.name %></td>
+              <td><%= link_to 'show', user_path(user.id) %></td>
             </tr>
           <% end %>
         </tbody>
