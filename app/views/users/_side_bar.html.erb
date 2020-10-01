@@ -28,7 +28,7 @@
 
   <div class="create-book">
     <h2><b>New book</b></h2>
-    <%= form_with model:@book, local:true do |f| %>
+    <%= form_with model:book, local:true do |f| %>
       <h3 class="book-title">Title</h3>
       <%= f.text_field :title %>
       <h3 class="book-opinion">Opinion</h3>
