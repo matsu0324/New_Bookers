@@ -9,13 +9,19 @@
       <% end %>
     </div>
     <% end %>
-<h1 class="edit-heading">Editing Book</h1>
-  <%= form_with model:@book, url:"/books/#{@book.id}", local:true do |f| %>
-    <h4 class="edit-title">Title</h4>
-    <%= f.text_field :title %>
-    <h4 class="edit-title">Opinion</h4>
-    <%= f.text_area :body %>
-    <p><%= f.submit 'Update Book', class: "btn btn-primary" %></p>
-    <p class="edit-tab"><%= link_to 'Show', book_path(@book.id) %> | <%= link_to "Back", books_path %></p>
-  <% end %>
+<div class="containar">
+  <div class="row">
+    <div class="col-xs-4" style="margin-left: 600px;">
+      <h1 class="edit-heading">Editing Book</h1>
+      <%= form_with model:@book, url:"/books/#{@book.id}", local:true do |f| %>
+        <h4 class="edit-title">Title</h4>
+      <%= f.text_field :title %>
+        <h4 class="edit-title">Opinion</h4>
+      <%= f.text_area :body %>
+        <p><%= f.submit 'Update Book', class: "btn btn-primary" %></p>
+        <p class="edit-tab"><%= link_to 'Show', book_path(@book.id) %> | <%= link_to "Back", books_path %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
 </body>

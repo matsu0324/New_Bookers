@@ -1,11 +1,5 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-3">
-      <% if flash[:notice] %>
-      <div class="flash" style="color: #00ff7f;">
-        <%= flash[:notice] %>
-      </div>
-     <% end %>
      <% if @user.errors.any? %>
 　　<div id="error_explanation" class="alert alert-danger">
       <h2 class="error"><%= @user.errors.count %> errors prohibited this book from being saved:</h2>
@@ -16,39 +10,7 @@
       <% end %>
     </div>
     <% end %>
-      <h2>User info</h2>
-      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
-      <table class="table">
-        <tbody>
-          <tr>
-            <th>name</th>
-            <th><%= @user.name %></th>
-          </tr>
-          <tr>
-            <th>introduction</th>
-            <th><%= @user.introduction %></th>
-          </tr>
-        </tbody>
-      </table>
-      <div class="edit-button">
-        <% if @user.id == current_user.id %>
-          <%= link_to edit_user_path(@user), class: "btn btn-default btn-block" do %>
-　　　　  <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-　　　　  <% end %>
-　　　　<% end %>
-　　　</div>
-
-      <div class="create-book">
-        <h2><b>New book</b></h2>
-          <%= form_with model:@book, local:true do |f| %>
-            <h3 class="book-title">Title</h3>
-          <%= f.text_field :title %>
-            <h3 class="book-opinion">Opinion</h3>
-          <%= f.text_area :body %>
-          <%= f.submit "Create Book", class: "btn btn-primary" %>
-          <% end %>
-      </div>
-    </div>
+    <%= render 'users/side_bar', user: @user %>
 
     <div class="col-xs-9">
       <h2>Books</h2>

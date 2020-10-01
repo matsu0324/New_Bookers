@@ -15,30 +15,30 @@
       <nav id="slidemenu">
         <ul class="nav navbar-nav navbar-right" style="padding-right: 150px;" >
         <% if user_signed_in? %>
-          <li class="side-bar">
-            <span class="glyphicon glyphicon-home" aria-hidden="true"><%= link_to "Home", user_path(current_user.id) %></span>
+          <li class="side-bar" style="color: #9d9d9d; padding-right: 30px;">
+            <span class="glyphicon glyphicon-home" aria-hidden="true" style="color: #9d9d9d;"> <%= link_to "Home", user_path(current_user.id) %></span>
           </li>
-          <li class="side-bar">
-            <span class="glyphicon glyphicon-user" aria-hidden="true"><%= link_to 'Users', users_path %></span>
+          <li class="side-bar" style="color: #9d9d9d; padding-right: 30px;">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"> <%= link_to 'Users', users_path %></span>
           </li>
-          <li class="side-bar">
-            <span class="glyphicon glyphicon-book" aria-hidden="true"><%= link_to 'Books', books_path %></span>
+          <li class="side-bar" style="color: #9d9d9d; padding-right: 30px;">
+            <span class="glyphicon glyphicon-book" aria-hidden="true"> <%= link_to 'Books', books_path %></span>
           </li>
-          <li class="side-bar">
-            <span class="glyphicon glyphicon-log-out" aria-hidden="true"><%= link_to 'logout', destroy_user_session_path, method: :delete %></span>
+          <li class="side-bar" style="color: #9d9d9d; padding-right: 30px;">
+            <span class="glyphicon glyphicon-log-out" aria-hidden="true"> <%= link_to 'logout', destroy_user_session_path, method: :delete %></span>
           </li>
         <% else %>
-          <li class="side-bar">
-            <span class="glyphicon glyphicon-home" aria-hidden="true"><%= link_to "Home", root_path %></span>
+          <li class="side-bar" style="color: #9d9d9d; padding-right: 30px;">
+            <span class="glyphicon glyphicon-home" aria-hidden="true"> <%= link_to "Home", root_path %></span>
           </li>
-          <li class="side-bar">
-            <span class="glyphicon glyphicon-paperclip" aria-hidden="true"><%= link_to "About", home_about_path %></span>
+          <li class="side-bar" style="color: #9d9d9d; padding-right: 30px;">
+            <span class="glyphicon glyphicon-paperclip" aria-hidden="true"> <%= link_to "About", home_about_path %></span>
           </li>
-          <li class="side-bar">
-            <span class="glyphicon glyphicon-edit" aria-hidden="true"><%= link_to "sign up", new_user_registration_path %></span>
+          <li class="side-bar" style="color: #9d9d9d; padding-right: 30px;">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"> <%= link_to "sign up", new_user_registration_path %></span>
           </li>
-          <li class="side-bar">
-            <span class="glyphicon glyphicon-log-in" aria-hidden="true"><%= link_to "login", new_user_session_path %></span>
+          <li class="side-bar" style="color: #9d9d9d; padding-right: 30px;">
+            <span class="glyphicon glyphicon-log-in" aria-hidden="true"> <%= link_to "login", new_user_session_path %></span>
           </li>
         <% end %>
         </ul>
